@@ -1,0 +1,69 @@
+local function GetMurderer()
+
+    local plrs = game:GetService("Players")
+
+    for i,v in pairs(plrs:GetPlayers()) do
+
+        if v.Character:FindFirstChild("Knife") or v.Backpack:FindFirstChild("Knife") then
+
+            return v.Character
+
+        end
+
+    end
+
+end
+
+local function GetSheriff()
+
+    local plrs = game:GetService("Players")
+
+    for i,v in pairs(plrs:GetPlayers()) do
+
+        if v.Character:FindFirstChild("Gun") or v.Backpack:FindFirstChild("Gun") then
+
+            return v.Character
+
+        end
+
+    end
+
+end
+
+
+
+print(GetMurderer())
+
+print(GetSheriff())
+
+
+
+if GetSheriff() then
+
+    local SheriffOutline = Instance.new("Highlight")
+
+    SheriffOutline.FillColor = Color3.fromRGB(0,0,255)
+
+    SheriffOutline.FillTransparency = .75
+
+    SheriffOutline.OutlineColor = Color3.fromRGB(0,0,255)
+
+    SheriffOutline.Parent = GetSheriff()
+
+end
+
+
+
+if GetMurderer() then
+
+    local MurdererOutline = Instance.new("Highlight")
+
+    MurdererOutline.FillColor = Color3.fromRGB(255,0,0)
+
+    MurdererOutline.FillTransparency = .75
+
+    MurdererOutline.OutlineColor = Color3.fromRGB(255,0,0)
+
+    MurdererOutline.Parent = GetMurderer()
+
+end
